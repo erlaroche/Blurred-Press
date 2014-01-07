@@ -1,0 +1,44 @@
+!!! 5
+%html.bg
+  %head
+    %meta{charset: "utf-8"}
+
+    %meta{name: "viewport", content: "width=device-width, initial-scale=1.0"}
+
+    %title Blurred Press
+
+    = stylesheet_link_tag "application", "//cdnjs.cloudflare.com/ajax/libs/font-awesome/3.2.1/css/font-awesome.min.css"
+    = javascript_include_tag "vendor/custom.modernizr"
+    = csrf_meta_tags
+
+  %body
+    %nav.top-bar
+      %ul.title-area
+        %li.name
+          %h1
+            %a{href:"#"} Blurred Press
+
+        %li.toggle-topbar.menu-icon
+          %a{href:"#"}
+            %span Menu
+
+      %section.top-bar-section
+        %ul.right
+          = user_content do
+            %li
+              = link_to new_post_path do
+                %i.icon-edit
+                New post
+          %li.divider
+          %li
+            - if current_user
+              = link_to log_out_path do
+                %i.icon-user
+                Log out
+            - else
+              = link_to log_in_path do
+                %i.icon-user
+                Log in
+
+
+    = javascript_include_tag "application"
