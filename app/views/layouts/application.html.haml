@@ -32,13 +32,10 @@
           %li.divider
           %li
             - if current_user
-              = link_to log_out_path do
-                %i.icon-user
-                Log out
+              = logout
+
             - else
-              = link_to log_in_path do
-                %i.icon-user
-                Log in
+              = login
 
     .row
       .large-4.columns
